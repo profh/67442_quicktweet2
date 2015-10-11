@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="QuickTweet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +16,70 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XrD-Qd-VGD">
+                                <rect key="frame" x="16" y="30" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="438-0e-9uV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iap-xC-EYx">
+                                <rect key="frame" x="6" y="85" width="589" height="507"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7x-bd-Fhz">
+                                <rect key="frame" x="164" y="30" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ApN-XZ-tV2"/>
+                                </constraints>
+                                <state key="normal" title="Set">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setAccount" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ier-q0-ddN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bon-oY-G8a">
+                                <rect key="frame" x="485" y="47" width="80" height="30"/>
+                                <state key="normal" title="Send Tweet">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendTweet:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="JnX-pU-isG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-9T-ej2">
+                                <rect key="frame" x="485" y="20" width="91" height="30"/>
+                                <state key="normal" title="Show Tweets">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTweets:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lYC-uk-IBT"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="iap-xC-EYx" secondAttribute="centerX" id="7Ue-Ja-egi"/>
+                            <constraint firstItem="iap-xC-EYx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-10" id="CBi-d7-gUD"/>
+                            <constraint firstItem="bon-oY-G8a" firstAttribute="top" secondItem="0Ce-9T-ej2" secondAttribute="bottom" constant="-3" id="Jdp-3F-TY9"/>
+                            <constraint firstItem="0Ce-9T-ej2" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="R2q-Vp-GRU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iap-xC-EYx" secondAttribute="trailing" constant="-11" id="STG-dO-jTH"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="iap-xC-EYx" secondAttribute="bottom" constant="8" id="agV-BF-Hd5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Ce-9T-ej2" secondAttribute="trailing" constant="8" id="dwK-7W-cpp"/>
+                            <constraint firstItem="XrD-Qd-VGD" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="gAl-cD-1JI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bon-oY-G8a" secondAttribute="trailing" constant="19" id="h9S-so-LEX"/>
+                            <constraint firstItem="h7x-bd-Fhz" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="ieu-4k-Ztg"/>
+                            <constraint firstItem="h7x-bd-Fhz" firstAttribute="leading" secondItem="XrD-Qd-VGD" secondAttribute="trailing" constant="8" id="lmq-si-W1i"/>
+                            <constraint firstItem="XrD-Qd-VGD" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="pmI-oA-Qwc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accountName" destination="XrD-Qd-VGD" id="I17-Yd-ANL"/>
+                        <outlet property="twitterWebView" destination="iap-xC-EYx" id="c5Q-lj-bra"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
