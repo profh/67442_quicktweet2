@@ -15,7 +15,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var twitterWebView: UIWebView!
   
   var account: String?
-  var url = NSURL (string:"http://www.twitter.com/profh")
+  var url = NSURL(string:"http://www.twitter.com/profh")
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction func showTweets(sender: UIButton) {
-    let urlRequest = NSURLRequest (URL: url!)
+    let urlRequest = NSURLRequest(URL: url!)
     twitterWebView.loadRequest(urlRequest)
   }
 
